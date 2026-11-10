@@ -73,3 +73,58 @@ Y despues pongo este comando para comprobar que las guest aditions están instal
 <img width="1365" height="727" alt="guestAditions9" src="https://github.com/user-attachments/assets/ed457172-dbd3-4354-a79c-535bca7f91f5" />
 
 <img width="1365" height="728" alt="guestAditions8" src="https://github.com/user-attachments/assets/c1fe067c-20be-4f04-854c-ddc22d23da53" />
+
+
+# **Instalación de Docker en Ubuntu**
+
+1. **Actualiza los repositorios:**
+```
+   sudo apt update && sudo apt upgrade -y
+```
+
+<img width="1368" height="176" alt="instalacionDocker1" src="https://github.com/user-attachments/assets/ff1ed3ea-7ed0-4fe3-bff7-f36f5a688708" />
+
+<img width="1365" height="730" alt="instalacionDocker2" src="https://github.com/user-attachments/assets/d070cc9b-2928-4030-9de5-fa7b28b664c8" />
+
+2. **Instala dependencias:**
+```
+   sudo apt install ca-certificates curl gnupg -y
+```
+
+<img width="1365" height="516" alt="instalacionDocker4" src="https://github.com/user-attachments/assets/aa11fd65-c84b-40f7-83d9-ac9322096f25" />
+
+<img width="1365" height="102" alt="instalacionDocker3" src="https://github.com/user-attachments/assets/2326c7e5-a0ef-458a-8583-a2cc7e9c1290" />
+
+
+3. **Añade el repositorio de Docker e instala Docker Desktop:**
+```
+  curl -fsSL https://get.docker.com | sudo sh
+   sudo apt install docker-desktop -y
+```
+
+Este comando da error o parece porque no funciona
+
+Yo use los soguientes comandos
+```
+   curl -fsSL https://get.docker.com -o get-docker.sh
+   
+   sudo sh get-docker.sh
+```
+<img width="1365" height="169" alt="instalacionDocker5" src="https://github.com/user-attachments/assets/94f23f1d-6dd6-4626-b1c1-ee7767ed109c" />
+
+<img width="1365" height="180" alt="instalacionDocker6" src="https://github.com/user-attachments/assets/34adb26d-fd0d-4948-ad4c-cb8b07eb8561" />
+
+
+4. **Verifica que Docker funciona correctamente:**
+```
+  docker --version
+   docker run hello-world
+```
+<img width="1365" height="117" alt="instalacionDocker8" src="https://github.com/user-attachments/assets/2ed5880d-ac9d-4e5c-9ca7-661f2a5978c0" />
+
+<img width="1365" height="261" alt="instalacionDocker9" src="https://github.com/user-attachments/assets/498e95c8-b410-4d53-894c-0ac00589c2ab" />
+
+<img width="1365" height="729" alt="instalacionDocker10" src="https://github.com/user-attachments/assets/ce6f5995-c799-4624-a628-e6fdbfb01b43" />
+
+
+
