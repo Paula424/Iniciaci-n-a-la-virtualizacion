@@ -127,4 +127,118 @@ Yo use los soguientes comandos
 <img width="1365" height="729" alt="instalacionDocker10" src="https://github.com/user-attachments/assets/ce6f5995-c799-4624-a628-e6fdbfb01b43" />
 
 
+# **Instalación de contenedores de servidor web y de aplicaciones**
+## **Instalación en Docker**
+
+1. **Buscar imágenes disponibles:**
+```
+   docker search nginx 
+   docker search tomcat 
+```
+
+   Nginx
+
+<img width="1365" height="171" alt="instalacionDocker11" src="https://github.com/user-attachments/assets/a4b3b3a5-69b7-46b6-b547-e27f495c6e5d" />
+
+<img width="1365" height="728" alt="instalacionDocker12" src="https://github.com/user-attachments/assets/b5efdaa6-3538-48fe-a2fe-4623f8acd4f2" />
+
+   Tomcat
+
+<img width="1365" height="176" alt="instalacionDocker15" src="https://github.com/user-attachments/assets/6cf8c790-87e6-43de-88c1-6f53b2989001" />
+
+<img width="1365" height="727" alt="instalacionDocker16" src="https://github.com/user-attachments/assets/52fb9254-1b1d-429f-bcd2-c239f38eec30" />
+
+
+2. **Descargar e iniciar contenedores:**
+```
+   docker run -d -p 8080:80 --name webserver nginx 
+   docker run -d -p 8081:8080 --name appserver tomcat
+```
+
+   Nginx
+
+<img width="1365" height="61" alt="instalacionDocker13" src="https://github.com/user-attachments/assets/04fd3dd8-51b0-4786-b8e8-14bb510e409e" />
+
+<img width="1365" height="405" alt="instalacionDocker14" src="https://github.com/user-attachments/assets/ec5b4baf-8b46-4872-8782-6ae3243f446b" />
+
+   Tomcat
+
+<img width="1365" height="65" alt="instalacionDocker17" src="https://github.com/user-attachments/assets/bfded71e-b8c0-4b05-bade-e5671b2f2e0c" />
+
+<img width="1365" height="428" alt="instalacionDocker18" src="https://github.com/user-attachments/assets/b7ce419e-15b2-4ffa-8427-bd363b2e284d" />
+
+
+3. **Verificar contenedores activos:**
+```
+   docker ps
+```
+
+<img width="1365" height="33" alt="instalacionDocker19" src="https://github.com/user-attachments/assets/6ceb4c04-8e70-4a60-8636-aaf573318f30" />
+
+<img width="1365" height="188" alt="instalacionDocker20" src="https://github.com/user-attachments/assets/bd94660e-35ff-44f1-8a50-06dcc8c2f8f8" />
+
+
+4. **Abrir en el navegador:**
+   * _http://localhost:8080_ → **Nginx**
+
+<img width="1365" height="440" alt="instalacionDocker21ç" src="https://github.com/user-attachments/assets/a6207fd4-148c-4873-a5bb-875f201c4f77" />
+
+
+   * _http://localhost:8081_ → **Tomcat**
+
+<img width="1365" height="357" alt="instalacionDocker22" src="https://github.com/user-attachments/assets/f16f41a3-296e-487c-baac-4760f9350978" />
+
+Como vemos me dio error, entonces con ayda de la IA, lo pude solucionar, la verdad que bastante rapido y sencillo, con unos comandos.
+ ```
+Primero, en la terminal de Ubuntu, ejecuta:
+docker ps
+
+Comprueba que aparece tu contenedor appserver y que el puerto está así:
+text
+0.0.0.0:8081->8080/tcp
+
+Después, ejecuta:
+docker logs appserver
+
+Esto nos permitirá comprobar si Tomcat se ha iniciado correctamente.
+```
+
+Me dijo esto primero, yo lo comprobé que todo estaba correcto como me pidió, y puse el comando que me dio, que como dice ahí era para comprobar si este se había iniciado correctamente.
+```
+docker logs appserver
+```
+
+<img width="1365" height="87" alt="instalacionDocker23" src="https://github.com/user-attachments/assets/dd3876a4-7a56-4d57-965a-09d0463739e0" />
+
+<img width="1365" height="727" alt="instalacionDocker24" src="https://github.com/user-attachments/assets/36231b3a-06fa-421a-8c5b-65aef9a49462" />
+
+Y me salía esto, que indicaba e resumidas cuentas que si se había iniciado.
+
+Y me seguía saliendo el error, entonces me dio otro comando que era para que me enseñara por fin la imagen que me deberia de salir desde un prinicipio
+```
+En la terminal de Ubuntu, copia y pega este comando:
+docker exec appserver sh -c 'cp -a /usr/local/tomcat/webapps.dist/. /usr/local/tomcat/webapps/'
+
+¿Qué hace? Copia las aplicaciones de ejemplo que vienen con Tomcat a la carpeta desde la que Tomcat sirve las páginas web.
+```
+Que como explica ahí ese comando te copia las aplicaciones de ejemplo que vienen con la imagen y así conseguir que se viera y no diera error.
+Te pongo el cmnado de nuevo
+```
+docker exec appserver sh -c 'cp -a /usr/local/tomcat/webapps.dist/. /usr/local/tomcat/webapps/'
+```
+
+<img width="1365" height="78" alt="instalacionDocke25" src="https://github.com/user-attachments/assets/5193602c-3490-4aea-b405-850776bbee08" />
+
+<img width="1365" height="728" alt="instalacionDocker26" src="https://github.com/user-attachments/assets/5ac175da-a10b-404b-8007-903905212c8f" />
+
+Y así pude yo solucionar lo de la imagen en el buscador de Tomcat.
+
+
+
+
+
+
+
+
+
 
